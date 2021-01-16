@@ -26,12 +26,12 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void updateCustomer(UUID customerId, CustomerDto customerDto) {
+    public void updateCustomerById(UUID customerId, CustomerDto customerDto) {
         // TODO: implementation
     }
 
     @Override
-    public void deleteById(UUID customerId) {
+    public void deleteCustomerById(UUID customerId) {
         log.debug("Customer deleted ...");
     }
 }

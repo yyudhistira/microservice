@@ -9,7 +9,7 @@ public interface BreadService {
 
     BreadDto saveNewBread(BreadDto newBread);
 
-    void updateBread(UUID breadId, BreadDto breadDto);
+    void updateBreadById(UUID breadId, BreadDto breadDto);
 
-    void deleteBread(UUID breadId);
+    void deleteBreadById(UUID breadId);
 }

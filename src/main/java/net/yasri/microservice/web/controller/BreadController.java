@@ -20,12 +20,12 @@ public class BreadController {
     }
 
     @GetMapping({"/{breadId}"})
-    public ResponseEntity<BreadDto> getBread(@PathVariable("breadId") UUID breadId) {
+    public ResponseEntity<BreadDto> getBreadById(@PathVariable("breadId") UUID breadId) {
         return new ResponseEntity(breadService.getBreadById(breadId), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity handlePost(@RequestBody BreadDto newBread) {
+    public ResponseEntity saveNewBread(@RequestBody BreadDto newBread) {
         BreadDto savedDto = breadService.saveNewBread(newBread);
 
         HttpHeaders headers = new HttpHeaders();
@@ -35,15 +35,15 @@ public class BreadController {
     }
 
     @PutMapping({"/{breadId}"})
-    public ResponseEntity handleUpdate(@PathVariable("breadId") UUID breadId, @RequestBody BreadDto breadDto) {
-        breadService.updateBread(breadId, breadDto);
+    public ResponseEntity updateBreadById(@PathVariable("breadId") UUID breadId, @RequestBody BreadDto breadDto) {
+        breadService.updateBreadById(breadId, breadDto);
 
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
     @DeleteMapping({"/{breadId}"})
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteBread(@PathVariable("breadId") UUID breadId) {
-        breadService.deleteBread(breadId);
+    public void deleteBreadById(@PathVariable("breadId") UUID breadId) {
+        breadService.deleteBreadById(breadId);
     }
 }

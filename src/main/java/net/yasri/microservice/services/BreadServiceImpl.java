@@ -2,6 +2,7 @@ package net.yasri.microservice.services;
 
 import lombok.extern.slf4j.Slf4j;
 import net.yasri.microservice.web.model.BreadDto;
+import net.yasri.microservice.web.model.BreadStyleEnum;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -14,7 +15,7 @@ public class BreadServiceImpl implements BreadService {
         return BreadDto.builder()
             .id(UUID.randomUUID())
             .breadName("Galaxy Car")
-            .bredStyle("White Bread")
+            .bredStyle(BreadStyleEnum.BLAND)
             .build();
     }
 
@@ -29,12 +30,12 @@ public class BreadServiceImpl implements BreadService {
     }
 
     @Override
-    public void updateBread(UUID breadId, BreadDto breadDto) {
+    public void updateBreadById(UUID breadId, BreadDto breadDto) {
         // TODO: implementation
     }
 
     @Override
-    public void deleteBread(UUID breadId) {
+    public void deleteBreadById(UUID breadId) {
         log.debug("Bread deleted ....");
     }
 
