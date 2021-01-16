@@ -1,8 +1,6 @@
 package net.yasri.microservice.web.controller;
 
-import net.yasri.microservice.services.BreadService;
 import net.yasri.microservice.web.model.BreadDto;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,30 +11,32 @@ import java.util.UUID;
 @RestController
 public class BreadController {
 
-    private final BreadService breadService;
-
-    public BreadController(BreadService breadService) {
-        this.breadService = breadService;
-    }
+//    private final BreadService breadService;
+//
+//    public BreadController(BreadService breadService) {
+//        this.breadService = breadService;
+//    }
 
     @GetMapping({"/{breadId}"})
     public ResponseEntity<BreadDto> getBreadById(@PathVariable("breadId") UUID breadId) {
-        return new ResponseEntity(breadService.getBreadById(breadId), HttpStatus.OK);
+        return new ResponseEntity(BreadDto.builder().build(), HttpStatus.OK);
+//        return new ResponseEntity(breadService.getBreadById(breadId), HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity saveNewBread(@RequestBody BreadDto newBread) {
-        BreadDto savedDto = breadService.saveNewBread(newBread);
+//        BreadDto savedDto = breadService.saveNewBread(newBread);
+//
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.add("Location", "/api/v1/bread/" +savedDto.getId().toString());
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Location", "/api/v1/bread/" +savedDto.getId().toString());
-
-        return new ResponseEntity(headers, HttpStatus.CREATED);
+//        return new ResponseEntity(headers, HttpStatus.CREATED);
+        return new ResponseEntity(HttpStatus.CREATED);
     }
 
     @PutMapping({"/{breadId}"})
     public ResponseEntity updateBreadById(@PathVariable("breadId") UUID breadId, @RequestBody BreadDto breadDto) {
-        breadService.updateBreadById(breadId, breadDto);
+//        breadService.updateBreadById(breadId, breadDto);
 
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
@@ -44,6 +44,7 @@ public class BreadController {
     @DeleteMapping({"/{breadId}"})
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteBreadById(@PathVariable("breadId") UUID breadId) {
-        breadService.deleteBreadById(breadId);
+
+//        breadService.deleteBreadById(breadId);
     }
 }
