@@ -21,7 +21,7 @@ public class BreadDto {
     private OffsetDateTime lastModifiedDate;
 
     private String breadName;
-    private BreadStyleEnum bredStyle;
+    private BreadStyleEnum breadStyle;
     private Long upc;
 
     private BigDecimal price;

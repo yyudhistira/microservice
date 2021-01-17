@@ -15,7 +15,7 @@ public class BreadServiceImpl implements BreadService {
         return BreadDto.builder()
             .id(UUID.randomUUID())
             .breadName("Galaxy Car")
-            .bredStyle(BreadStyleEnum.BLAND)
+            .breadStyle(BreadStyleEnum.BLAND)
             .build();
     }
 
@@ -24,7 +24,7 @@ public class BreadServiceImpl implements BreadService {
         return BreadDto.builder()
             .id(UUID.randomUUID())
             .breadName(newBread.getBreadName())
-            .bredStyle(newBread.getBredStyle())
+            .breadStyle(newBread.getBreadStyle())
             .upc(newBread.getUpc())
             .build();
     }
