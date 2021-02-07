@@ -24,8 +24,8 @@ public class BreadServiceImpl implements BreadService {
         return BreadDto.builder()
             .id(UUID.randomUUID())
             .breadName(newBread.getBreadName())
-            .breadStyle(newBread.getBreadStyle())
-            .upc(newBread.getUpc())
+//            .breadStyle(newBread.getBreadStyle())
+//            .upc(newBread.getUpc())
             .build();
     }
 
