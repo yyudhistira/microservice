@@ -29,11 +29,9 @@ public class BreadController {
         BreadDto savedDto = breadService.saveNewBread(newBread);
 
         HttpHeaders headers = new HttpHeaders();
+        headers.add("Location", "/api/v1/bread/" +savedDto.getId().toString());
 
-        // TODO: test fail with mocked service
-//        headers.add("Location", "/api/v1/bread/" +savedDto.getId().toString());
-
-        return new ResponseEntity(headers, HttpStatus.CREATED);
+        return new ResponseEntity<>(headers, HttpStatus.CREATED);
     }
 
     @PutMapping({"/{breadId}"})

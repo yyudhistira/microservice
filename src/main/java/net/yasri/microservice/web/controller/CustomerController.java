@@ -29,8 +29,7 @@ public class CustomerController {
         CustomerDto savedDto = customerService.saveNewCustomer(newCustomerDto);
 
         HttpHeaders headers = new HttpHeaders();
-        // TODO: test fails with mock CustomerService
-//        headers.add("Location", "/api/v1/customer/" + savedDto.getId().toString());
+        headers.add("Location", "/api/v1/customer/" + savedDto.getId().toString());
 
         return new ResponseEntity(headers, HttpStatus.CREATED);
     }
