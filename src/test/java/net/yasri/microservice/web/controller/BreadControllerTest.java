@@ -36,7 +36,9 @@ class BreadControllerTest {
 
     @Test
     void saveNewBread() throws Exception {
-        BreadDto breadDto = BreadDto.builder().id(UUID.randomUUID()).build();
+        BreadDto breadDto = BreadDto.builder()
+            .breadName("New bread")
+            .build();
         String breadJson = objectMapper.writeValueAsString(breadDto);
 
         mockMvc.perform(post("/api/v1/bread/")
