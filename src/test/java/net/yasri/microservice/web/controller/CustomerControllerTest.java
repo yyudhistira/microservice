@@ -13,6 +13,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.util.UUID;
 
+import static org.mockito.BDDMockito.given;
+import static org.mockito.Matchers.any;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -39,6 +41,8 @@ class CustomerControllerTest {
     void saveNewCustomer() throws Exception {
         CustomerDto customerDto = CustomerDto.builder().id(UUID.randomUUID()).build();
         String customerJson = objectMapper.writeValueAsString(customerDto);
+
+        given(customerService.saveNewCustomer(any())).willReturn(customerDto);
 
         mockMvc.perform(post("/api/v1/customer")
             .contentType(MediaType.APPLICATION_JSON)

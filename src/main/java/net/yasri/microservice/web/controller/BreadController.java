@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.UUID;
 
 @RequestMapping("/api/v1/bread")
@@ -25,17 +26,17 @@ public class BreadController {
     }
 
     @PostMapping
-    public ResponseEntity saveNewBread(@RequestBody BreadDto newBread) {
+    public ResponseEntity saveNewBread(@RequestBody @Valid BreadDto newBread) {
         BreadDto savedDto = breadService.saveNewBread(newBread);
 
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Location", "/api/v1/bread/" + newBread.getId().toString());
+        headers.add("Location", "/api/v1/bread/" + savedDto.getId().toString());
 
         return new ResponseEntity<>(headers, HttpStatus.CREATED);
     }
 
     @PutMapping({"/{breadId}"})
-    public ResponseEntity updateBreadById(@PathVariable("breadId") UUID breadId, @RequestBody BreadDto breadDto) {
+    public ResponseEntity updateBreadById(@PathVariable("breadId") UUID breadId, @RequestBody @Valid BreadDto breadDto) {
         breadService.updateBreadById(breadId, breadDto);
 
         return new ResponseEntity(HttpStatus.NO_CONTENT);
