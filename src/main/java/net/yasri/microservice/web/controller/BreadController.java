@@ -29,7 +29,7 @@ public class BreadController {
         BreadDto savedDto = breadService.saveNewBread(newBread);
 
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Location", "/api/v1/bread/" +savedDto.getId().toString());
+        headers.add("Location", "/api/v1/bread/" + newBread.getId().toString());
 
         return new ResponseEntity<>(headers, HttpStatus.CREATED);
     }
