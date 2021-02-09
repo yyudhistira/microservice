@@ -36,7 +36,7 @@ public class Bread {
     private OffsetDateTime lastModifiedDate;
 
     private String breadName;
-    private BreadStyleEnum breadStyle;
+    private String breadStyle;
 
     @Column(unique = true)
     private Long upc;

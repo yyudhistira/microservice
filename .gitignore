@@ -165,5 +165,4 @@ Desktop.ini
 /.idea/
 
 /.idea/libraries/
-target/classes
-target/maven-status
+target/**

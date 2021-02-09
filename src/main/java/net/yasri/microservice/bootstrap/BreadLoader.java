@@ -26,7 +26,7 @@ public class BreadLoader implements CommandLineRunner {
         if (breadRepository.count() == 0) {
             breadRepository.save(Bread.builder()
                 .breadName("Roti1")
-                .breadStyle(BreadStyleEnum.STUFFED_DINNER_ROLLS)
+                .breadStyle("STUFFED_DINNER_ROLLS")
                 .price(BigDecimal.valueOf(200))
                 .quantityOnHand(10)
                 .quantityOnHand(100)
@@ -34,7 +34,7 @@ public class BreadLoader implements CommandLineRunner {
                 .build());
             breadRepository.save(Bread.builder()
                 .breadName("Roti2")
-                .breadStyle(BreadStyleEnum.STUFFED)
+                .breadStyle("STUFFED")
                 .price(BigDecimal.valueOf(10))
                 .quantityOnHand(100)
                 .quantityOnHand(200)
